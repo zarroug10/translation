@@ -22,7 +22,6 @@ public class BasicTranslationService : ITranslationService
             var enArJson = File.ReadAllText("Resources/Translations/en-ar.json");
             _translations["en-fr"] = JsonSerializer.Deserialize<Dictionary<string, string>>(enEfJson);
             _translations["en-ar"] = JsonSerializer.Deserialize<Dictionary<string, string>>(enArJson);
-            Console.WriteLine(_translations.ToArray());
         }
         catch (Exception ex)
         {
@@ -33,13 +32,19 @@ public class BasicTranslationService : ITranslationService
     public Task<string> TranslateAsync(string text, string sourceLang, string targetLang)
     {
         var langPair = $"{sourceLang}-{targetLang}";
+        Dictionary<string, string> lowerTranslations = [];
 
         if (!_translations.TryGetValue(langPair, out var translations))
         {
             return Task.FromResult($"[LANG PAIR {langPair} NOT SUPPORTED]");
         }
 
-        if (translations.TryGetValue(text.ToLower(), out var translated))
+        foreach(var k in translations)
+        {
+            lowerTranslations.Add(k.Key.ToLower(), k.Value);
+        }
+
+        if (lowerTranslations.TryGetValue(text.ToLower(), out var translated))
         {
             return Task.FromResult(translated);
         }

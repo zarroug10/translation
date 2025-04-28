@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Trasnlator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d06abc5bb254f78da33bc764306ad65c11466af")]
 [assembly: System.Reflection.AssemblyProductAttribute("Trasnlator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Trasnlator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
